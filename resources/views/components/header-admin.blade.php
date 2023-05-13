@@ -32,7 +32,7 @@
                         <a href="{{ url('/dashboard') }}" class="nav_link active"><span class="nav_name">Inicio</span> <i class='bx bx-home-alt-2 nav_icon'></i> </a> 
                         <a href="#" class="nav_link"><span class="nav_name">Clientes</span> <i class='bx bx-user nav_icon'></i></a> 
                         <a href="{{ url('/categorias')}}" class="nav_link"><span class="nav_name">Categorias</span> <i class='bx bx-category nav_icon'></i> </a> 
-                        <a href="#" class="nav_link"><span class="nav_name">Licencias</span>  <i class='bx bx-list-check nav_icon'></i> </a> 
+                        <a href="{{ url('/licencias')}}" class="nav_link"><span class="nav_name">Licencias</span>  <i class='bx bx-list-check nav_icon'></i> </a> 
                         <a href="#" class="nav_link"><span class="nav_name">Ventas <i class='bx bx-shopping-bag nav_icon'></i> </span>
                         </a> <a href="#" class="nav_link"><span class="nav_name">Reportes</span>  <i class='bx bxs-report nav_icon'></i> </a> 
                     </div>

@@ -57,7 +57,7 @@ class CategoriasController extends Controller
     {
         $categorias = Categorias::find($id);
         $categorias->delete();
-        //Alert::success('Alerta', 'Dato eliminado'.$categorias);
+        Alert::success('Alerta', 'Dato eliminado');
         return redirect('categorias');        
 
     }

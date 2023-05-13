@@ -71,13 +71,13 @@
                                         <a class="nav-link" href="{{ url('/') }}">Inicio</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="computer.html">Windows</a>
+                                        <a class="nav-link" href="{{ url('/windows') }}">Windows</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="laptop.html">Antivirus</a>
+                                        <a class="nav-link" href="{{ url('/antivirus') }}">Antivirus</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="product.html">Office</a>
+                                        <a class="nav-link" href="{{ url('/office') }}">Office</a>
                                     </li>
                                     @if (Auth::guest())
                                         <li class="nav-item d_none">

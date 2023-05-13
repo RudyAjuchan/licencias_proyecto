@@ -83,8 +83,11 @@
     }
 
     .btn-lic{
-      background: #4723D9;
+      background: #4723D9 !important;
       color: white;
+    }
+    .btn-lic:hover{
+      color: rgb(236, 234, 234);
     }
     .header {
       width: 100%;
@@ -96,10 +99,14 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 1rem;
-      /* background-color: var(--white-color); */
-      z-index: var(--z-fixed);
-      transition: .5s
-    }
+      /*background-color: var(--white-color);
+      */z-index: var(--z-fixed);
+      transition: .5s    ;
+      -webkit-transition: .5s    ;
+      -moz-transition: .5s    ;
+      -ms-transition: .5s    ;
+      -o-transition: .5s    ;
+}
 
     .header_toggle {
       color: var(--first-color);
