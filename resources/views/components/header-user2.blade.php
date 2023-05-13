@@ -36,7 +36,7 @@
 </head>
 <!-- body -->
 
-<body class="main-layout">
+<body class="main-layout inner_posituong computer_page">
     <!-- loader  -->
     <div class="loader_bg">
         <div class="loader"><img src="{{ asset('img/loading.gif')}}" alt="#" /></div>

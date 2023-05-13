@@ -42,13 +42,50 @@
       padding: 0 1rem;
       font-family: var(--body-font);
       font-size: var(--normal-font-size);
-      transition: .5s
-    }
+      transition: .5s    ;
+      -webkit-transition: .5s;
+      -moz-transition: .5s;
+      -ms-transition: .5s;
+      -o-transition: .5s;
+}
+
+.nav .bx{
+  position: absolute;
+  right: 0px;
+}
+
+.nav .bx-layer{
+  position: absolute;
+  right: 15px;
+}
+
+.nav_name{
+  margin-left: 40px;
+}
+
+.nav .nav_logo-name{
+  margin-left: 20px;
+}
+
+.icono{
+  position: relative;
+}
+.icono .bx{
+  position: absolute;
+  padding: 12px 17px;
+  pointer-events: none;
+  display: block;
+  transition: all linear .5s;
+}
 
     a {
       text-decoration: none
     }
 
+    .btn-lic{
+      background: #4723D9;
+      color: white;
+    }
     .header {
       width: 100%;
       height: var(--header-height);
@@ -87,7 +124,7 @@
       position: fixed;
       top: 0;
       left: -30%;
-      width: var(--nav-width);
+      width: 224px;
       height: 100vh;
       background-color: var(--first-color);
       padding: .5rem 1rem 0 0;
@@ -187,15 +224,25 @@
       }
 
       .l-navbar {
-        left: 0;
+        left: -175px;
         padding: 1rem 1rem 0 0
-      }
-
-      .show {
-        width: calc(var(--nav-width) + 156px)
       }
 
       .body-pd {
         padding-left: calc(var(--nav-width) + 188px)
+      }
+
+      .show{
+        left: 0px;
+      }
+
+      .show > .nav .bx{
+        position: absolute;
+        left: 15px;
+      }
+      
+      .show > .nav .bx-layer{
+        position: absolute;
+        left: 15px;
       }
     }  

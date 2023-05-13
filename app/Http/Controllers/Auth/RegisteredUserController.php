@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Spatie\Permission\Models\Role;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RegisteredUserController extends Controller
 {
@@ -45,6 +46,8 @@ class RegisteredUserController extends Controller
 
         $role = Role::find(2);
         $user->assignRole($role);
+
+        Alert::success('Registro satisfactorio','Por favor lea detenidamente el siguiente mensaje');
 
         event(new Registered($user));
 

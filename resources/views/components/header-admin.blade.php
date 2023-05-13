@@ -4,10 +4,16 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Licencias System</title>
     <link href='{{ asset("css/bootstrap.min.css") }}' rel='stylesheet'>
     <link href='{{ asset("css/boxicons.min.css") }}' rel='stylesheet'>
     <link href='{{ asset("css/sidebar.css") }}' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body className='snippet-body'>
@@ -21,15 +27,15 @@
         </form>
         <div class="l-navbar" id="nav-bar">
             <nav class="nav">
-                <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">LicenciaSystem</span> </a>
+                <div> <a href="{{ url('/dashboard') }}" class="nav_logo"><span class="nav_logo-name">LicenciaSystem</span>  <i class='bx bx-layer nav_logo-icon mr-1'></i> </a>
                     <div class="nav_list"> 
-                        <a href="#" class="nav_link active"> <i class='bx bx-home-alt-2 nav_icon'></i> <span class="nav_name">Inicio</span> </a> 
-                        <a href="#" class="nav_link"> <i class='bx bx-user nav_icon'></i><span class="nav_name">Clientes</span> </a> 
-                        <a href="#" class="nav_link"> <i class='bx bx-category nav_icon'></i> <span class="nav_name">Categorias</span> </a> 
-                        <a href="#" class="nav_link"> <i class='bx bx-list-check nav_icon'></i> <span class="nav_name">Licencias</span></a> 
-                        <a href="#" class="nav_link"> <i class='bx bx-shopping-bag nav_icon'></i> <span class="nav_name">Ventas</span>
-                        </a> <a href="#" class="nav_link"> <i class='bx bxs-report nav_icon'></i> <span class="nav_name">Reportes</span> </a> 
+                        <a href="{{ url('/dashboard') }}" class="nav_link active"><span class="nav_name">Inicio</span> <i class='bx bx-home-alt-2 nav_icon'></i> </a> 
+                        <a href="#" class="nav_link"><span class="nav_name">Clientes</span> <i class='bx bx-user nav_icon'></i></a> 
+                        <a href="{{ url('/categorias')}}" class="nav_link"><span class="nav_name">Categorias</span> <i class='bx bx-category nav_icon'></i> </a> 
+                        <a href="#" class="nav_link"><span class="nav_name">Licencias</span>  <i class='bx bx-list-check nav_icon'></i> </a> 
+                        <a href="#" class="nav_link"><span class="nav_name">Ventas <i class='bx bx-shopping-bag nav_icon'></i> </span>
+                        </a> <a href="#" class="nav_link"><span class="nav_name">Reportes</span>  <i class='bx bxs-report nav_icon'></i> </a> 
                     </div>
                 </div> <a href="{{ route('logout') }}" class="nav_link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Cerrar Sesión</span> </a>
             </nav>
-        </div>
+        </div>        
