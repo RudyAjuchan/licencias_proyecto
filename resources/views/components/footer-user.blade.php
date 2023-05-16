@@ -43,9 +43,11 @@
 <script src="{{ asset('js/popper.min.js')}}"></script>
 <script src="{{ asset('js/bootstrap4.bundle.min.js')}}"></script>
 <script src="{{ asset('js/jquery-3.0.0.min.js')}}"></script>
+<script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 <!-- sidebar -->
 <script src="{{ asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 <script src="{{ asset('js/custom.js')}}"></script>
+<script src="{{ asset('js/carrito.js')}}"></script>
 </body>
 
 </html>

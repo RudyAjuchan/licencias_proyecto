@@ -25,10 +25,11 @@
     <link rel="stylesheet" href="{{ asset('css/CustomScrollbar.css')}}">
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -44,9 +45,9 @@
     <!-- end loader -->
     <!-- header -->
     <header>
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-        @csrf
-    </form>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
         <!-- header inner -->
         <div class="header">
             <div class="container-fluid">
@@ -62,7 +63,9 @@
                     </div>
                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
                         <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
+                                aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse" id="navbarsExample04">
@@ -80,32 +83,37 @@
                                         <a class="nav-link" href="{{ url('/office') }}">Office</a>
                                     </li>
                                     @if (Auth::guest())
-                                        <li class="nav-item d_none">
-                                            <a class="nav-link" href="{{ route('login') }}">Login</a>
-                                        </li>
-                                        <li class="nav-item d_none">
-                                            <a class="nav-link" href="{{ route('register') }}">Registrate</a>
-                                        </li>
-                                        
+                                    <li class="nav-item d_none">
+                                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                    </li>
+                                    <li class="nav-item d_none">
+                                        <a class="nav-link" href="{{ route('register') }}">Registrate</a>
+                                    </li>
+
                                     @else
-                                        
-                                        <li class="nav-item">
-                                            <div class="dropdown">
-                                                <a class="dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ auth()->user()->name }}</a>
-                                                <!-- <button class="dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                    <li class="nav-item">
+                                        <div class="dropdown">
+                                            <a class="dropdown-toggle nav-link" type="button" id="dropdownMenuButton"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                href="#">{{ auth()->user()->name }}</a>
+                                            <!-- <button class="dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 Dropdown button
                                                 </button> -->
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="#">Carrito</a>
-                                                    <a class="dropdown-item" href="{{ url('/profile') }}">Cuenta</a>
-                                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar Sesión</a>
-                                                </div>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="{{ url('/profile') }}">Cuenta</a>
+                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar
+                                                    Sesión</a>
                                             </div>
-                                        </li>
+                                        </div>
+                                    </li>
                                     @endif
                                     <li class="nav-item">
-                                        <a class="nav-link" href="product.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i><sup class="ml-1">0</sup></a>
-                                    </li>                                                                        
+                                        <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"
+                                                data-toggle="modal" data-target="#modalCarrito"></i><sup
+                                                class="ml-1" id="contCarrito">0</sup></a>
+                                    </li>
                                 </ul>
                             </div>
                         </nav>
@@ -116,3 +124,72 @@
     </header>
     <!-- end header inner -->
     <!-- end header -->
+
+
+{{-- Modal carrito --}}
+<div class="modal fade" id="modalCarrito" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Carrito</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <h4>Carrito de compras</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Item</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Acción</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="items"></tbody>
+                        <tfoot>
+                            <tr id="footer">
+                                <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+                            </tr>
+                        </tfoot>
+                    </table>                    
+                    <button class="btn btn-success btn-block">Iniciar Compra</button>
+                </div>
+
+                <template id="template-footer">
+                    <th scope="row" colspan="2">Total productos</th>
+                    <td>10</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+                            vaciar todo
+                        </button>
+                    </td>
+                    <td class="font-weight-bold">$ <span>5000</span></td>
+                </template>
+
+                <template id="template-carrito">
+                    <tr>
+                        <th scope="row">id</th>
+                        <td>Café</td>
+                        <td>1</td>
+                        <td>
+                            <button class="btn btn-info btn-sm">
+                                +
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                -
+                            </button>
+                        </td>
+                        <td>$ <span>500</span></td>
+                    </tr>
+                </template>
+
+            </div>
+        </div>
+    </div>
+</div>
+{{-- Modal carrito --}}
