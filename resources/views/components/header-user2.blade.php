@@ -13,6 +13,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- bootstrap css -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap4.min.css')}}">
     <!-- style css -->
@@ -110,7 +111,7 @@
                                     </li>
                                     @endif
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"
+                                        <a class="nav-link" href="#" id="icon-carrito"><i class="fa fa-shopping-cart" aria-hidden="true"
                                                 data-toggle="modal" data-target="#modalCarrito"></i><sup
                                                 class="ml-1" id="contCarrito">0</sup></a>
                                     </li>
@@ -157,7 +158,7 @@
                             </tr>
                         </tfoot>
                     </table>                    
-                    <button class="btn btn-success btn-block">Iniciar Compra</button>
+                    <a href="{{ url('/procesoCompra') }}" class="btn btn-success btn-block">Iniciar Compra</a>                    
                 </div>
 
                 <template id="template-footer">
@@ -168,7 +169,7 @@
                             vaciar todo
                         </button>
                     </td>
-                    <td class="font-weight-bold">$ <span>5000</span></td>
+                    <td class="font-weight-bold">Q <span>5000</span></td>
                 </template>
 
                 <template id="template-carrito">
@@ -184,7 +185,7 @@
                                 -
                             </button>
                         </td>
-                        <td>$ <span>500</span></td>
+                        <td>Q <span>500</span></td>
                     </tr>
                 </template>
 

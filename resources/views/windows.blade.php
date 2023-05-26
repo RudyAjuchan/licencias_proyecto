@@ -4,12 +4,12 @@
             @foreach ($licencias as $lic)
                 <div class="col-md-3">
                     <div class="card">
-                        <img class="card-img-top" src="{{ asset($lic->imagen) }}" alt="Card image cap">
+                        <img class="card-img-top img-fluid" src="{{ asset($lic->imagen) }}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ $lic->nombre }}</h5>
-                            <span class="card-text">{{ $lic->descripcion }}</span>
-                            Precio Q.<p>{{ $lic->precio }}</p>
-                            <button data-id="{{ $lic->id }}" class="btn btn-primary btn-block" id="btn-compra">Añadir al carrito</button>
+                            <p class="card-text">{{ $lic->descripcion }}</p><br>
+                            <b>Precio Q. <span>{{ $lic->precio }}</span></b>
+                            <button data-id="{{ $lic->id }}" class="btn btn-primary btn-block mt-3" id="btn-compra">Añadir al carrito</button>
                         </div>
                     </div>
                 </div>

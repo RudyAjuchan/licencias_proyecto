@@ -12,8 +12,8 @@
                         <img class="card-img-top" src="{{ asset($lic->imagen) }}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ $lic->nombre }}</h5>
-                            <span class="card-text">{{ $lic->descripcion }}</span>
-                            Precio Q.<p>{{ $lic->precio }}</p>
+                            <p class="card-text">{{ $lic->descripcion }}</p>
+                            <b>Precio Q.<span>{{ $lic->precio }}</span></b>
                             <button data-id="{{ $lic->id }}" class="btn btn-primary btn-block" id="btn-compra">Añadir al carrito</button>
                         </div>
                     </div>

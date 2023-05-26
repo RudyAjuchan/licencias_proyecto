@@ -10,6 +10,13 @@ var contCarrito=0;
 
 $(document).ready(function(){
     carrito = JSON.parse(localStorage.getItem('carrito'))
+    if(carrito){
+        const cantidadCarrito = Object.values(carrito).reduce((acc, { cantidad }) => acc + cantidad, 0);
+    document.getElementById("contCarrito").textContent=cantidadCarrito;
+    if(cantidadCarrito>0){
+        $("#icon-carrito").css("color","#51FE44");
+    }
+    }    
     pintarCarrito()
 });
 // Eventos
@@ -27,7 +34,13 @@ const addCarrito = e => {
         // console.log(e.target.parentElement)
         setCarrito(e.target.parentElement)
     }
-    console.log(e.target);
+    swal({
+        icon: 'success',
+        title: 'Atención',
+        text: '¡Se agregó producto, revise su carrito!',
+    }).then(function () {	        
+        $("#modalCarrito").modal("show");
+    }); 
     e.stopPropagation()
 }
 
@@ -35,7 +48,7 @@ const setCarrito = item => {
     // console.log(item)
     const producto = {
         title: item.querySelector('h5').textContent,
-        precio: item.querySelector('p').textContent,
+        precio: item.querySelector('span').textContent,
         id: item.querySelector('button').dataset.id,
         cantidad: 1
     }
@@ -92,21 +105,20 @@ const pintarFooter = () => {
     const clone = templateFooter.cloneNode(true)
     fragment.appendChild(clone)
 
-    footer.appendChild(fragment)
+    footer.appendChild(fragment)    
 
-    swal({
-        icon: 'success',
-        title: 'Atención',
-        text: '¡Se agregó producto, revise su carrito!',
-    }).then(function () {	        
-        contCarrito++;
-        document.getElementById("contCarrito").textContent=contCarrito;
-        $("#modalCarrito").modal("show");
-    }); 
+    document.getElementById("contCarrito").textContent=nCantidad;
+    if(nCantidad>0){
+        $("#icon-carrito").css("color","#51FE44");
+    }
 
     const boton = document.querySelector('#vaciar-carrito')
     boton.addEventListener('click', () => {
         carrito = {}
+        document.getElementById("contCarrito").textContent=0;
+        if(nCantidad>0){
+            $("#icon-carrito").css("color","white");
+        }
         pintarCarrito()
     })
 

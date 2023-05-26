@@ -49,17 +49,41 @@ class LicenciasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Licencias $licencias)
+    public function show($id)
     {
-        //
+        $licencias = Licencias::find($id);
+        $categorias = Categorias::all();
+        return view('editLicencias', compact('licencias', 'categorias'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Licencias $licencias)
+    public function update(Request $request, $id)
     {
-        //
+        $mensaje = "";
+        $licencias = Licencias::find($id);
+        if(isset($request->imagen)){
+            $request->validate([
+                'imagen' => 'required|image|max:2048'
+            ]);
+    
+            //para mover imagen
+            $imagen = $request->file('imagen')->store('public');
+            $linkImagen = Storage::url($imagen);
+
+            $licencias->imagen = $linkImagen;
+        }       
+        
+        $licencias->nombre = $request->nombre;
+        $licencias->precio = $request->precio;
+        $licencias->stock = $request->stock;
+        $licencias->descripcion = $request->descripcion;        
+        $licencias->estado = $request->estado;
+        $licencias->categoria_id = $request->categoria_id;
+        $licencias->save();
+        Alert::success('¡Correcto!','Los datos se guardaron con éxito');
+        return redirect('licencias');        
     }
 
     /**
