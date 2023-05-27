@@ -71,7 +71,7 @@
                     <div class="icono">
                         <label for="nombre">No Tarjeta:</label>
                         <i class='bx bx-rename'></i>
-                        <input required name="no_tarjeta" type="number" class="form-control ps-5 mb-3" placeholder="Ingrese el Número de tarjeta" >                 
+                        <input required name="no_tarjeta" id="no_tarjeta" type="number" class="form-control ps-5 mb-3" placeholder="Ingrese el Número de tarjeta" >                 
                     </div>
                     <div class="row">
                         <div class="col-md-4">

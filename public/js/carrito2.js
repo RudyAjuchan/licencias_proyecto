@@ -143,9 +143,9 @@ const enviarPago = () => {
             "paymentType": "card",
             "amount": nPrecio,
             "cardDetails": {
-                "cardNumber": "4444555566667028",
-                "expirationDate": "05/2028",
-                "cvv": "603"
+                "cardNumber": document.getElementById('no_tarjeta').value,
+                "expirationDate": document.getElementById('expiracion').value,
+                "cvv": document.getElementById('cvc').value
             }
         }
         axios({
