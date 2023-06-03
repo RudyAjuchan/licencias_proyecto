@@ -7,6 +7,21 @@
     <title>Document</title>
 </head>
 <body>
+
+    <h2>Factura</h2>
+    <p><b>Cliente: </b>{{ $cliente }}</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Total cancelado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ $total }}</td>
+            </tr>
+        </tbody>
+    </table>
     Tu compra ha sido completada, por favor revisa tu correo y se te ha enviado el link de la licencia <br>
     ¡Gracias por tu compra! <br>
     @php

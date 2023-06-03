@@ -55,7 +55,7 @@ class PagoController extends Controller
             $detalle_venta->licencia_id=$DC['id'];
             $detalle_venta->save();            
         }
-        Mail::to($correo)->send(new Notificacion);
+        Mail::to($correo)->send(new Notificacion($total, $request->nombre));
         Alert::success('¡Correcto!','Los datos se guardaron con éxito');
         return redirect('windows');
     }

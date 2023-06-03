@@ -161,6 +161,14 @@ const enviarPago = () => {
             }).then(function () {	        
                 window.location.href = "/";
             }); 
+        }).catch(function (error) {
+            swal({
+                icon: 'error',
+                title: 'Atención',
+                text: '¡Los credenciales de la tarjeta no son correctos!',
+            }).then(function () {	        
+                window.location.href = "/procesoCompra";
+            });            
         });
     });
 }

@@ -29,11 +29,9 @@
             <nav class="nav">
                 <div> <a href="{{ url('/dashboard') }}" class="nav_logo"><span class="nav_logo-name">LicenciaSystem</span>  <i class='bx bx-layer nav_logo-icon mr-1'></i> </a>
                     <div class="nav_list"> 
-                        <a href="{{ url('/dashboard') }}" class="nav_link active"><span class="nav_name">Inicio</span> <i class='bx bx-home-alt-2 nav_icon'></i> </a> 
-                        <a href="#" class="nav_link"><span class="nav_name">Clientes</span> <i class='bx bx-user nav_icon'></i></a> 
+                        <a href="{{ url('/dashboard') }}" class="nav_link active"><span class="nav_name">Inicio</span> <i class='bx bx-home-alt-2 nav_icon'></i> </a>                         
                         <a href="{{ url('/categorias')}}" class="nav_link"><span class="nav_name">Categorias</span> <i class='bx bx-category nav_icon'></i> </a> 
-                        <a href="{{ url('/licencias')}}" class="nav_link"><span class="nav_name">Licencias</span>  <i class='bx bx-list-check nav_icon'></i> </a> 
-                        <a href="#" class="nav_link"><span class="nav_name">Ventas <i class='bx bx-shopping-bag nav_icon'></i> </span>                        
+                        <a href="{{ url('/licencias')}}" class="nav_link"><span class="nav_name">Licencias</span>  <i class='bx bx-list-check nav_icon'></i> </a>                         
                     </div>
                 </div> <a href="{{ route('logout') }}" class="nav_link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Cerrar Sesión</span> </a>
             </nav>
