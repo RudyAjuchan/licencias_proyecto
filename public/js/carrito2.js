@@ -166,9 +166,7 @@ const enviarPago = () => {
                 icon: 'error',
                 title: 'Atención',
                 text: '¡Los credenciales de la tarjeta no son correctos!',
-            }).then(function () {	        
-                window.location.href = "/procesoCompra";
-            });            
+            });         
         });
     });
 }
